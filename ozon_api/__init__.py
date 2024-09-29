@@ -2,6 +2,10 @@ from typing import Any, Dict, List, Literal, Optional, Type, Union
 from aiohttp import ClientSession
 from loguru import logger
 
+import sys
+logger.remove()
+logger.add(sys.stderr, level="INFO")
+
 class OzonAPI:
     """
     A class for interacting with the Ozon API.
@@ -206,7 +210,7 @@ class OzonAPI:
         )
         return response
 
-    async def get_description_category_attributes(
+    async def get_description_category_attribute(
         self: Type["OzonAPI"],
     ) -> dict[str, Any]:
         """
@@ -336,7 +340,7 @@ class OzonAPI:
         Returns:
             List[Dict[str, Any]]: The JSON response from the API. The response contains the description category attribute values.
         """
-        fields_response = await self.get_description_category_attributes()
+        fields_response = await self.get_description_category_attribute()
         fields = fields_response.get("result", [])
 
         category_info = []
