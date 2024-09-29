@@ -4,6 +4,13 @@ version = "0.1.0"
 description = "Lib for interacting with the Ozon API"
 authors = ["FxCode <dev@fxcode.ru>"]
 readme = "README.md"
+license = "MIT"
+repository = "https://github.com/mephistofox/python-ozon-api"
+documentation = "https://github.com/mephistofox/python-ozon-api/blob/main/README.md"
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
