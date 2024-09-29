@@ -1,5 +1,5 @@
-# Pyozon v0.1.0 _by FxCode_ `в разработке`
-### Асинхронная Python библиотека для работы с Ozon API
+# Ozon API v0.1.0.1 _by FxCode_ `в разработке`
+### [Асинхронная Python библиотека для работы с Ozon API](https://pypi.org/project/ozon-api/)
 
 ## Установка
 ```bash

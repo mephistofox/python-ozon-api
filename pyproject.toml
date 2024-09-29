@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ozon-api"
-version = "0.1.0"
+version = "0.1.0.1"
 description = "Lib for interacting with the Ozon API"
 authors = ["FxCode <dev@fxcode.ru>"]
 readme = "README.md"
