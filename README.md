@@ -3,14 +3,19 @@
 
 ## Установка
 ```bash
-git clone git@github.com:mephistofox/python-ozon-api.git
+pip install ozon-api
 ```
-_В дальнейшем будет опубликовано в pip_
-
 ## Использование
+
+```bash
+# Данные полученные в ЛК Ozon API
+CLIENT_ID = client_id
+API_KEY = api_key
+```
 
 ```python
 import os
+from dotenv import load_dotenv
 from ozon_api import OzonAPI
 api = OzonAPI(os.getenv("CLIENT_ID"), os.getenv("API_KEY"))
 ```
