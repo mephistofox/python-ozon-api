@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "ozon-api"
+version = "0.1.0"
+description = "Lib for interacting with the Ozon API"
+authors = ["FxCode <dev@fxcode.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.10.5"
+loguru = "^0.7.2"
+pydantic = "^2.9.2"
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "^1.0.1"
+asyncio = "^3.4.3"
+black = "^24.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
