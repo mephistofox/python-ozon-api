@@ -3,16 +3,16 @@
 
 ## Установка
 ```bash
-    git clone git@github.com:mephistofox/python-ozon-api.git
+git clone git@github.com:mephistofox/python-ozon-api.git
 ```
 _В дальнейшем будет опубликовано в pip_
 
 ## Использование
 
 ```python
-    import os
-    from ozon_api import OzonAPI
-    api = OzonAPI(os.getenv("CLIENT_ID"), os.getenv("API_KEY"))
+import os
+from ozon_api import OzonAPI
+api = OzonAPI(os.getenv("CLIENT_ID"), os.getenv("API_KEY"))
 ```
 ***Устанавливаем язык на котором будем получать ответ от API***
 
