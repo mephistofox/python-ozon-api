@@ -47,6 +47,8 @@ class OzonAPI:
         Args:
             value (str): The new base URL of the Ozon API.
         """
+        if not value.startswith("http://") and not value.startswith("https://"):
+            raise ValueError("Invalid URL: must start with 'http://' or 'https://'")
         self.__api_url = value
 
     @property
@@ -289,7 +291,7 @@ class OzonAPI:
             if not data.get("has_next"):
                 break
 
-        return result
+        return {"result":result}
 
     async def get_description_category_attribute_values_search(
         self: Type["OzonAPI"],
