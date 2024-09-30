@@ -1,4 +1,5 @@
-# Ozon API v0.1.0.1 _by FxCode_  `в разработке`
+# Ozon API v0.1.0.1
+`dev`
 
 ### [Асинхронная Python библиотека для работы с Ozon API](https://pypi.org/project/ozon-api/)
 
@@ -20,13 +21,16 @@ API_KEY = api_key
 import os
 from dotenv import load_dotenv
 from ozon_api import OzonAPI
+
+load_dotenv()
+
 api = OzonAPI(
     client_id=os.getenv("CLIENT_ID"),
     api_key=os.getenv("API_KEY")
 )
 ```
 
-***Устанавливаем язык на котором будем получать ответ от API**_
+_**Устанавливаем язык на котором будем получать ответ от API**_
 
 ```python
 api.language = "RU"
@@ -207,7 +211,7 @@ ___
 
 ### Модели данных
 
-*Для валидации данных используйте модели из модуля ozon_api.models_
+_Для валидации данных используйте модели из модуля ozon_api.models_
 
 _**Пример:**_
 
