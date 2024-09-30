@@ -443,7 +443,7 @@ class OzonAPI:
 
         return data
     
-    async def product_pictures_import(self: Type["OzonAPI"], images_data:dict) -> dict[str, Any]:
+    async def product_pictures_import(self: Type["OzonAPI"], items:dict) -> dict[str, Any]:
         """
         Documentation: https://docs.ozon.ru/api/seller/#operation/ProductAPI_ProductImportPictures
 
@@ -456,7 +456,7 @@ class OzonAPI:
             method="post",
             api_version="v1",
             endpoint="product/pictures/import",
-            json=images_data,
+            json=items,
         )
 
         return data
