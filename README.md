@@ -166,8 +166,38 @@ _**Пример ответа:**_
 ___
 ## Загрузка и обновление товаров
 
-### Реализованные методы:
-- product_import
+### Модели данных
+*Для валидации данных используйте модели из модуля ozon_api.models*
+
+***Пример:***
+```python
+from ozon_api.models import product_import
+
+product_import_model = product_import.ProductImport
+... работа с данными, формирование списка товаров ...
+items = product_import.model_validate(<подготовленные данные>)
+validated_items = product_import.model_dump(mode="json")
+```
+___
+### ***[api.product_import](https://docs.ozon.ru/api/seller/#operation/ProductAPI_ImportProductsV3)***
+***Метод для создания товаров и обновления информации о них.***
+
+**В сутки можно создать или обновить определённое количество товаров. Чтобы узнать лимит, используйте `api.product_info_limit()`**
+
+_В одном запросе можно передать до 100 товаров. Каждый товар — это отдельный элемент в массиве `items`._
+
+```python
+imported_products = api.product_import(validated_items)
+```
+___
+### ***[api.product_info_limit](https://docs.ozon.ru/api/seller/#operation/ProductAPI_GetUploadQuota)***
+***Метод для получения информации о лимитах.***
+
+```python
+limits = api.product_info_limit()
+```
+___
+
 - product_import_info
 - product_import_by_sku
 - product_attributes_update
