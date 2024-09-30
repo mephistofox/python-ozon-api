@@ -3,8 +3,10 @@ from aiohttp import ClientSession
 from loguru import logger
 
 import sys
+
 logger.remove()
 logger.add(sys.stderr, level="INFO")
+
 
 class OzonAPI:
     """
@@ -27,7 +29,6 @@ class OzonAPI:
     __description_category_id: Union[int, None] = None
     __language: Literal["DEFAULT", "RU", "EN", "TR", "ZH_HANS"] = "DEFAULT"
     __type_id: Union[int, None] = None
-    
 
     @property
     def api_url(self) -> str:
@@ -81,7 +82,9 @@ class OzonAPI:
         return self.__language
 
     @language.setter
-    def language(self: Type["OzonAPI"], value: Literal["DEFAULT", "RU", "EN", "TR", "ZH_HANS"]) -> None:
+    def language(
+        self: Type["OzonAPI"], value: Literal["DEFAULT", "RU", "EN", "TR", "ZH_HANS"]
+    ) -> None:
         """
         Sets the language to be used in the requests.
 
@@ -154,7 +157,7 @@ class OzonAPI:
         """
         self.client_id = client_id
         self.api_key = api_key
-        
+
         logger.info("Ozon API initialized successfully.")
 
     async def _request(
@@ -291,7 +294,7 @@ class OzonAPI:
             if not data.get("has_next"):
                 break
 
-        return {"result":result}
+        return {"result": result}
 
     async def get_description_category_attribute_values_search(
         self: Type["OzonAPI"],
@@ -408,7 +411,9 @@ class OzonAPI:
 
         return data
 
-    async def product_import_by_sku(self: Type["OzonAPI"], items: dict) -> dict[str, Any]:
+    async def product_import_by_sku(
+        self: Type["OzonAPI"], items: dict
+    ) -> dict[str, Any]:
         """
         Documentation: https://docs.ozon.ru/api/seller/#operation/ProductAPI_ImportProductsBySKU
 
@@ -417,7 +422,7 @@ class OzonAPI:
         Returns:
         dict[str, Any]: The JSON response from the API. The response contains the import task status.
         """
-        
+
         data = await self._request(
             method="post",
             api_version="v1",
@@ -427,7 +432,9 @@ class OzonAPI:
 
         return data
 
-    async def product_attributes_update(self: Type["OzonAPI"], items:dict) -> dict[str, int]:
+    async def product_attributes_update(
+        self: Type["OzonAPI"], items: dict
+    ) -> dict[str, int]:
         """
         Documentation: https://docs.ozon.ru/api/seller/#operation/ProductAPI_ProductUpdateAttributes
 
@@ -444,8 +451,10 @@ class OzonAPI:
         )
 
         return data
-    
-    async def product_pictures_import(self: Type["OzonAPI"], items:dict) -> dict[str, Any]:
+
+    async def product_pictures_import(
+        self: Type["OzonAPI"], items: dict
+    ) -> dict[str, Any]:
         """
         Documentation: https://docs.ozon.ru/api/seller/#operation/ProductAPI_ProductImportPictures
 
@@ -462,8 +471,10 @@ class OzonAPI:
         )
 
         return data
-  
-    async def product_pictures_info(self: Type["OzonAPI"], product_id: list[str]) -> dict[str, Any]:
+
+    async def product_pictures_info(
+        self: Type["OzonAPI"], product_id: list[str]
+    ) -> dict[str, Any]:
         """
         Documentation: https://docs.ozon.ru/api/seller/#operation/ProductAPI_ProductInfoPictures
 
@@ -480,17 +491,19 @@ class OzonAPI:
         )
 
         return data
-    
-    async def product_list(self: Type["OzonAPI"], body: dict[str, Any]) -> dict[str, Any]:
+
+    async def product_list(
+        self: Type["OzonAPI"], body: dict[str, Any]
+    ) -> dict[str, Any]:
         """
         Documentation: https://docs.ozon.ru/api/seller/#operation/ProductAPI_GetProductList
-        
+
         Retrieves a list of products.
 
         Returns:
         dict[str, Any]: The JSON response from the API. The response contains the product list.
         """
-        
+
         data = await self._request(
             method="post",
             api_version="v1",
@@ -499,7 +512,7 @@ class OzonAPI:
         )
 
         return data
-    
+
     async def product_info_limit(self: Type["OzonAPI"]):
         """
         Documentation: https://docs.ozon.ru/api/seller/#operation/ProductAPI_GetUploadQuota
@@ -509,11 +522,11 @@ class OzonAPI:
         Returns:
         dict[str, Any]: The JSON response from the API. The response contains the product indo limit.
         """
-        
+
         data = await self._request(
             method="post",
             api_version="v4",
             endpoint="product/info/limit",
         )
-        
+
         return data
