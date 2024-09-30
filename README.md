@@ -240,7 +240,9 @@ _**Метод для создания товаров и обновления и�
 _В одном запросе можно передать до 100 товаров. Каждый товар — это отдельный элемент в массиве `items`._
 
 ```python
-imported_products = api.product_import(validated_items)
+imported_products = asyncio.run(
+    api.product_import(validated_items)
+)
 ```
 
 ___
@@ -260,19 +262,43 @@ ___
 _**Узнать статус добавления товара.**_
 
 ```python
-import_info = api.product_import_info(
-    product_import_info.ProductImportInfo(
-        task_id=1234567  # task id полученный при выполнении метода product_import
+import_info = asyncio.run(
+    api.product_import_info(
+        product_import_info.ProductImportInfo(
+            task_id=1234567  # task id полученный при выполнении метода product_import
+        )
     )
 )
 ```
+___
+### _**[api.product_import_by_sku](https://docs.ozon.ru/api/seller/#operation/ProductAPI_ImportProductsBySKU)**_
 
+_**Создать товар по Ozon ID.**_
+
+```python
+product_import_by_sku_info = api.product_import_by_sku(
+    product_import_by_sku.ImportBySku(
+        ...
+    )
+)
+```
+___
+### _**[api.product_attributes_update](https://docs.ozon.ru/api/seller/#operation/ProductAPI_ImportProductsBySKU)**_
+
+_**Создать товар по Ozon ID.**_
+
+```python
+product_attributes_update_item = api.product_attributes_update(
+    product_attributes_update.ProductAttributesUpdate(
+        ...
+    )
+)
+```
 ___
 
-- product_import_info
-- product_import_by_sku
-- product_attributes_update
 - product_pictures_import
+`complete`
 - product_pictures_info
+`complete`
 - product_list
-- product_info_limit
+`complete`
