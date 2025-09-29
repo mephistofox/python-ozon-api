@@ -19,6 +19,7 @@ from .methods.product_archive import OzonProductArchiveAPI
 from .methods.product_barcode_add import OzonProductBarcodeAddAPI
 from .methods.product_barcode_generate import OzonProductBarcodeGenerateAPI
 from .methods.product_import import OzonProductImportAPI
+from .methods.product_info_list import OzonProductInfoListAPI
 from .methods.product_list import OzonProductListAPI
 from .methods.product_pictures import OzonProductPicturesAPI
 from .methods.product_pictures_info import OzonProductPicturesInfoAPI
@@ -31,6 +32,7 @@ from .methods.product_update_offer_id import OzonProductUpdateOfferIdAPI
 class OzonAPI(
     OzonCategoryAPI,
     OzonProductImportAPI,
+    OzonProductInfoListAPI,
     OzonProductPicturesAPI,
     OzonProductListAPI,
     OzonProductRatingAPI,

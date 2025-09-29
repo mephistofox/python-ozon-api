@@ -1,0 +1,8 @@
+pytest~=8.3.3
+python-dotenv~=1.0.1
+asyncio~=3.4.3
+pydantic~=2.9.2
+aiohttp~=3.10.5
+loguru~=0.7.2
+tenacity~=9.1.2
+setuptools~=78.1.0
